@@ -43,3 +43,17 @@ for (var i = 0; i < numbers.length; i++) {          // Roll through the array
 }
 
 console.log("there are " + countPositives + " positive values");
+
+
+
+// Arrays
+// Reference datatype
+// Arrays can hold more than one value
+
+var faveColors = ["orange", "purple", "green"];
+console.log(faveColors[1]);
+faveColors[2] = "cyan";
+console.log(faveColors);
+
+// Length is three
+// Index for "purple" is 1
