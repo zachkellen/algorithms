@@ -33,3 +33,14 @@ console.log(combine([1,2,5,6],[0,3,4,6,11]));
 
 // should return [0,1]
 console.log(combine([1],[0]));
+
+const mergeSort = (arr) => {
+    console.log(arr);
+    if(arr.length <= 1) return arr;
+    let leftHalf = arr.slice(0, Math.floor(arr.length/2));
+    let rightHalf = arr.slice(Math.floor(arr.length/2));
+    return combine(mergeSort(leftHalf),mergeSort(rightHalf));
+}
+
+//should return [1,2,3,4,5,6,8,14]
+console.log(mergeSort([5,4,2,6,8,14,1,3,11]));
