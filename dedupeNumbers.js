@@ -9,11 +9,12 @@ function removeDupe(arr) {
         for(let j = i - 1; j >= 0; j--){
             if(arr[i] == arr[j]){
                 arr.splice(i , 1);
+                // break;
             }
-            console.log(arr)
+            // console.log(arr)
         }
     }
     return arr;
 }
 
-console.log(removeDupe([3,3,3,3,2,4,1,3,3]));
+console.log(removeDupe([3,3,3,2,2,3,3,3,3,3,3,3,2,2,2,3]));
