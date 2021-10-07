@@ -3,6 +3,7 @@
 // given "1D2", return 466
 const hexStrToDec = (str) => {
     let sum = 0;
+    
     for(let i = 0; i < str.length; i++){
         if(isNaN(str[i]) == false){
             // console.log("We got a number")
