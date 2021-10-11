@@ -55,6 +55,22 @@ class DoublyLinkedList {
         return output;
     }
 
+    displayReverse() {
+        if (this.head == null) {
+            return null;
+        }
+
+        var output = this.tail.value;
+        var runner = this.tail.previous;
+
+        while (runner != null) {
+            output += " - " + runner.value;
+            runner = runner.previous;
+        }
+
+        return output;
+    }
+
     removeFront() {
         if (this.head == null) {
             return null;
@@ -94,4 +110,48 @@ class DoublyLinkedList {
 
         return temp.value;
     }
+
+    reverse() {
+        let runner = this.tail;
+        while(runner != null){
+            let temp = runner.next;
+            runner.next = runner.previous;
+            runner.previous = temp;
+            runner = runner.next;
+        }
+        let temp = this.head;
+        this.head = this.tail;
+        this.tail=temp;
+    }
+
+    recurseReverse(runner = this.head) {
+        if(runner != null){
+            let nextJump = runner.next;
+            let temp = runner.next;
+            runner.next = runner.previous;
+            runner.previous = temp;
+            this.recurseReverse(nextJump)
+        } else {
+            let temp = this.head;
+            this.head = this.tail;
+            this.tail=temp;
+            return this;
+        }
+    }
 }
+
+let testDLL = new DoublyLinkedList();
+testDLL.addToBack(1);
+testDLL.addToBack(2);
+testDLL.addToBack(3);
+testDLL.addToBack(4);
+testDLL.addToBack(5);
+console.log(testDLL.display());
+testDLL.recurseReverse();
+console.log(testDLL.display());
+testDLL.recurseReverse();
+console.log(testDLL.display());
+testDLL.recurseReverse();
+console.log(testDLL.display());
+testDLL.reverse();
+console.log(testDLL.display());
